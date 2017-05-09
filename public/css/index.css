@@ -1,0 +1,225 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: montserrat, arial, verdana;
+  background: #30302e;
+}
+#msform {
+  margin: 100px auto 150px;
+  text-align: center;
+  position: relative;
+  width: 75%;
+}
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 75px 40px 40px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+#msform .action-button {
+  background: #ffd809;
+  color: #30302e;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 15px 25px;
+  margin: 50px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-family: Montserrat;
+  width: 225px;
+}
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+}
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+#progressbar {
+  counter-reset: step;
+}
+.prog-wrap {
+  padding-bottom: 50px;
+  margin-bottom: 90px;
+}
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  width: 16.66%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 50px;
+  line-height: 40px;
+  font-size: 25px;
+  display: block;
+  color: #30302e;
+  background: #ffffff;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  padding: 5px;
+  margin-top: -5px;
+  border: 1px solid #fff;
+}
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 20px;
+  z-index: -1;
+}
+#progressbar li:first-child:after {
+  content: none;
+}
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: #ffd809;
+  color: #30302e;
+  border-color: #ffd809;
+}
+fieldset > .form-items-con:first-child select,
+fieldset > .form-items-con:first-child input{
+  margin-top: 0;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+} 
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1; 
+}
+#select-default {
+  display: none;
+}
+
+
+.form-items-con {
+  width: 100%;
+  padding: 30px;
+}
+.centered-input-con {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.form-input {
+  width: 80%;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.select {
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.form-items-grid {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+.checkbox-inline {
+  display: inline-block;
+}
+.checkbox {
+  transform: scale(2);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+  padding: 10px;
+}
+.nopadding {
+  padding: 0px;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f2f2f2;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.cost {
+  text-align: center;
+  border: none;
+  font-size: 25px;
+}
+.traveler-info {
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

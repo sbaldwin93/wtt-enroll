@@ -1,0 +1,37 @@
+<html ng-app="wttEnrollmentForm">
+	<head>
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<!-- JQUERY -->
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<!-- INDEX.CSS -->
+		<link rel="stylesheet" href="../css/style.css">
+		<!-- ANGULAR -->
+		<script src="/node_modules/angular/angular.min.js"></script>
+		<!--ANGULAR-ROUTE-->
+    	<script src="/node_modules/angular-route/angular-route.min.js"></script>
+		<!-- INDEX.JS -->
+		<script type="text/javascript" src="../js/customer.js"></script>
+	</head>
+	<body ng-controller="mainController">
+	<div class="container">
+	<h1>Welcome, {{user.travelerFirstname}}</h1>
+	</div>
+	<div class="divider"></div>
+		<div class="nav-container">
+		<div class="nav">
+			<a href="#student-info"><button class="btn btn-primary">Student info</button></a>
+			<a href="#guardian-info"><button class="btn btn-primary">Guardian info</button></a>
+			<a href="#trip-info"><button class="btn btn-primary">Trip info</button></a>
+			<a href="#payment"><button class="btn btn-primary">Payment info</button></a>
+		</div>
+		</div>
+		<div class="divider"></div>
+
+	<div class="container">
+	<div ng-view></div>
+	</div>
+
+	</body>
+</html>

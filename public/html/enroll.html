@@ -1,0 +1,634 @@
+<html ng-app="wttEnrollmentForm">
+	<head>
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<!-- JQUERY -->
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<!-- INDEX.CSS -->
+		<link rel="stylesheet" href="../css/index.css">
+		<!-- ANGULAR -->
+		<script src="/node_modules/angular/angular.min.js"></script>
+		<!-- ANGULAR.JS -->
+		<script type="text/javascript" src="../js/angular.js"></script>
+		<!-- FORM.JS -->
+		<script type="text/javascript" src="../js/form.js"></script>
+	</head>
+	<body ng-controller="mainController">
+
+<!-- multistep form -->
+<!--<form id="msform" method="POST" action="https://creator.zoho.com/api/zoho_lacey21/json/wtt-test-form/form/wtt_test_form/record/add/">-->
+<form id="msform" action="/auth/signup" method="post">
+	<!--<input type="hidden" name ="authtoken" value="eaf59ebcf14312250f19781ae0e16c57">
+	<input type="hidden" name ="scope" id="scope" value="creatorapi">-->
+  <!-- progressbar -->
+  	<div class="prog-wrap">
+	  	<ul id="progressbar">
+		    <li class="active">Traveler info</li>
+		    <li>Guardian info</li>
+		    <li>Program info</li>
+		    <li>Confirm info</li>
+		    <li>Itinerary</li>
+		    <li>Payment</li>
+	  	</ul>
+  	</div>
+  	<!-- fieldsets -->
+
+
+  	<fieldset>
+		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>BASIC TRAVELER INFO</h3>
+		</div>
+		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="First name" name="travelerFirstname" ng-model="travelerFirstName"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Last name" name="travelerLastname" ng-model="travelerLastName"/>
+  			</div>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<input class="form-input" placeholder="Middle name" name="travelerMiddlename" ng-model="travelerMiddleName"/>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Primary phone #" name="travelerPrimaryPhone" ng-model="travelerPrimaryPhone"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Secondary phone #" name="travelerSecondaryPhone" ng-model="travelerSecondaryPhone"/>
+  			</div>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<input class="form-input" placeholder="Email" name="travelerEmail" ng-model="travelerEmail"/>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+	  			<select class="form-input select" name="travelerGender" ng-model="travelerGender">
+	  				<option value="" selected data-default id="select-default">Gender</option>
+	  				<option>Male</option>
+	  				<option>Female</option>
+	  			</select>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Birthdate xx/xx/xxxx" name="travelerBirthdate" ng-model="travelerBirthdate"/>
+  			</div>
+  		</div>
+  		<div class="divider clearfix"></div>
+  		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>ADDITION TRAVELER INFO</h3>
+		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<input class="form-input" placeholder="Mailing address" name="travelerStreetAddress" ng-model="travelerMailingAddress"/>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<select class="form-input select" name="travelerState" ng-model="travelerState">
+	  				<option value="" selected data-default id="select-default">State</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="DC">District Of Columbia</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+  				</select>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="City" name="travelerCity" ng-model="travelerCity"/>
+  			</div>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Zip Code" name="travelerZipCode" ng-model="travelerZipCode"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<select class="form-input select" name="travelerMailingCountry" ng-model="travelerMailingCountry">
+	  				<option value="" selected data-default id="select-default">Mailing Country</option>
+					<option value="AF">Afghanistan</option>
+					<option value="AX">Åland Islands</option>
+					<option value="AL">Albania</option>
+					<option value="DZ">Algeria</option>
+					<option value="AS">American Samoa</option>
+					<option value="AD">Andorra</option>
+					<option value="AO">Angola</option>
+					<option value="AI">Anguilla</option>
+					<option value="AQ">Antarctica</option>
+					<option value="AG">Antigua and Barbuda</option>
+					<option value="AR">Argentina</option>
+					<option value="AM">Armenia</option>
+					<option value="AW">Aruba</option>
+					<option value="AU">Australia</option>
+					<option value="AT">Austria</option>
+					<option value="AZ">Azerbaijan</option>
+					<option value="BS">Bahamas</option>
+					<option value="BH">Bahrain</option>
+					<option value="BD">Bangladesh</option>
+					<option value="BB">Barbados</option>
+					<option value="BY">Belarus</option>
+					<option value="BE">Belgium</option>
+					<option value="BZ">Belize</option>
+					<option value="BJ">Benin</option>
+					<option value="BM">Bermuda</option>
+					<option value="BT">Bhutan</option>
+					<option value="BO">Bolivia, Plurinational State of</option>
+					<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+					<option value="BA">Bosnia and Herzegovina</option>
+					<option value="BW">Botswana</option>
+					<option value="BV">Bouvet Island</option>
+					<option value="BR">Brazil</option>
+					<option value="IO">British Indian Ocean Territory</option>
+					<option value="BN">Brunei Darussalam</option>
+					<option value="BG">Bulgaria</option>
+					<option value="BF">Burkina Faso</option>
+					<option value="BI">Burundi</option>
+					<option value="KH">Cambodia</option>
+					<option value="CM">Cameroon</option>
+					<option value="CA">Canada</option>
+					<option value="CV">Cape Verde</option>
+					<option value="KY">Cayman Islands</option>
+					<option value="CF">Central African Republic</option>
+					<option value="TD">Chad</option>
+					<option value="CL">Chile</option>
+					<option value="CN">China</option>
+					<option value="CX">Christmas Island</option>
+					<option value="CC">Cocos (Keeling) Islands</option>
+					<option value="CO">Colombia</option>
+					<option value="KM">Comoros</option>
+					<option value="CG">Congo</option>
+					<option value="CD">Congo, the Democratic Republic of the</option>
+					<option value="CK">Cook Islands</option>
+					<option value="CR">Costa Rica</option>
+					<option value="CI">Côte d'Ivoire</option>
+					<option value="HR">Croatia</option>
+					<option value="CU">Cuba</option>
+					<option value="CW">Curaçao</option>
+					<option value="CY">Cyprus</option>
+					<option value="CZ">Czech Republic</option>
+					<option value="DK">Denmark</option>
+					<option value="DJ">Djibouti</option>
+					<option value="DM">Dominica</option>
+					<option value="DO">Dominican Republic</option>
+					<option value="EC">Ecuador</option>
+					<option value="EG">Egypt</option>
+					<option value="SV">El Salvador</option>
+					<option value="GQ">Equatorial Guinea</option>
+					<option value="ER">Eritrea</option>
+					<option value="EE">Estonia</option>
+					<option value="ET">Ethiopia</option>
+					<option value="FK">Falkland Islands (Malvinas)</option>
+					<option value="FO">Faroe Islands</option>
+					<option value="FJ">Fiji</option>
+					<option value="FI">Finland</option>
+					<option value="FR">France</option>
+					<option value="GF">French Guiana</option>
+					<option value="PF">French Polynesia</option>
+					<option value="TF">French Southern Territories</option>
+					<option value="GA">Gabon</option>
+					<option value="GM">Gambia</option>
+					<option value="GE">Georgia</option>
+					<option value="DE">Germany</option>
+					<option value="GH">Ghana</option>
+					<option value="GI">Gibraltar</option>
+					<option value="GR">Greece</option>
+					<option value="GL">Greenland</option>
+					<option value="GD">Grenada</option>
+					<option value="GP">Guadeloupe</option>
+					<option value="GU">Guam</option>
+					<option value="GT">Guatemala</option>
+					<option value="GG">Guernsey</option>
+					<option value="GN">Guinea</option>
+					<option value="GW">Guinea-Bissau</option>
+					<option value="GY">Guyana</option>
+					<option value="HT">Haiti</option>
+					<option value="HM">Heard Island and McDonald Islands</option>
+					<option value="VA">Holy See (Vatican City State)</option>
+					<option value="HN">Honduras</option>
+					<option value="HK">Hong Kong</option>
+					<option value="HU">Hungary</option>
+					<option value="IS">Iceland</option>
+					<option value="IN">India</option>
+					<option value="ID">Indonesia</option>
+					<option value="IR">Iran, Islamic Republic of</option>
+					<option value="IQ">Iraq</option>
+					<option value="IE">Ireland</option>
+					<option value="IM">Isle of Man</option>
+					<option value="IL">Israel</option>
+					<option value="IT">Italy</option>
+					<option value="JM">Jamaica</option>
+					<option value="JP">Japan</option>
+					<option value="JE">Jersey</option>
+					<option value="JO">Jordan</option>
+					<option value="KZ">Kazakhstan</option>
+					<option value="KE">Kenya</option>
+					<option value="KI">Kiribati</option>
+					<option value="KP">Korea, Democratic People's Republic of</option>
+					<option value="KR">Korea, Republic of</option>
+					<option value="KW">Kuwait</option>
+					<option value="KG">Kyrgyzstan</option>
+					<option value="LA">Lao People's Democratic Republic</option>
+					<option value="LV">Latvia</option>
+					<option value="LB">Lebanon</option>
+					<option value="LS">Lesotho</option>
+					<option value="LR">Liberia</option>
+					<option value="LY">Libya</option>
+					<option value="LI">Liechtenstein</option>
+					<option value="LT">Lithuania</option>
+					<option value="LU">Luxembourg</option>
+					<option value="MO">Macao</option>
+					<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+					<option value="MG">Madagascar</option>
+					<option value="MW">Malawi</option>
+					<option value="MY">Malaysia</option>
+					<option value="MV">Maldives</option>
+					<option value="ML">Mali</option>
+					<option value="MT">Malta</option>
+					<option value="MH">Marshall Islands</option>
+					<option value="MQ">Martinique</option>
+					<option value="MR">Mauritania</option>
+					<option value="MU">Mauritius</option>
+					<option value="YT">Mayotte</option>
+					<option value="MX">Mexico</option>
+					<option value="FM">Micronesia, Federated States of</option>
+					<option value="MD">Moldova, Republic of</option>
+					<option value="MC">Monaco</option>
+					<option value="MN">Mongolia</option>
+					<option value="ME">Montenegro</option>
+					<option value="MS">Montserrat</option>
+					<option value="MA">Morocco</option>
+					<option value="MZ">Mozambique</option>
+					<option value="MM">Myanmar</option>
+					<option value="NA">Namibia</option>
+					<option value="NR">Nauru</option>
+					<option value="NP">Nepal</option>
+					<option value="NL">Netherlands</option>
+					<option value="NC">New Caledonia</option>
+					<option value="NZ">New Zealand</option>
+					<option value="NI">Nicaragua</option>
+					<option value="NE">Niger</option>
+					<option value="NG">Nigeria</option>
+					<option value="NU">Niue</option>
+					<option value="NF">Norfolk Island</option>
+					<option value="MP">Northern Mariana Islands</option>
+					<option value="NO">Norway</option>
+					<option value="OM">Oman</option>
+					<option value="PK">Pakistan</option>
+					<option value="PW">Palau</option>
+					<option value="PS">Palestinian Territory, Occupied</option>
+					<option value="PA">Panama</option>
+					<option value="PG">Papua New Guinea</option>
+					<option value="PY">Paraguay</option>
+					<option value="PE">Peru</option>
+					<option value="PH">Philippines</option>
+					<option value="PN">Pitcairn</option>
+					<option value="PL">Poland</option>
+					<option value="PT">Portugal</option>
+					<option value="PR">Puerto Rico</option>
+					<option value="QA">Qatar</option>
+					<option value="RE">Réunion</option>
+					<option value="RO">Romania</option>
+					<option value="RU">Russian Federation</option>
+					<option value="RW">Rwanda</option>
+					<option value="BL">Saint Barthélemy</option>
+					<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+					<option value="KN">Saint Kitts and Nevis</option>
+					<option value="LC">Saint Lucia</option>
+					<option value="MF">Saint Martin (French part)</option>
+					<option value="PM">Saint Pierre and Miquelon</option>
+					<option value="VC">Saint Vincent and the Grenadines</option>
+					<option value="WS">Samoa</option>
+					<option value="SM">San Marino</option>
+					<option value="ST">Sao Tome and Principe</option>
+					<option value="SA">Saudi Arabia</option>
+					<option value="SN">Senegal</option>
+					<option value="RS">Serbia</option>
+					<option value="SC">Seychelles</option>
+					<option value="SL">Sierra Leone</option>
+					<option value="SG">Singapore</option>
+					<option value="SX">Sint Maarten (Dutch part)</option>
+					<option value="SK">Slovakia</option>
+					<option value="SI">Slovenia</option>
+					<option value="SB">Solomon Islands</option>
+					<option value="SO">Somalia</option>
+					<option value="ZA">South Africa</option>
+					<option value="GS">South Georgia and the South Sandwich Islands</option>
+					<option value="SS">South Sudan</option>
+					<option value="ES">Spain</option>
+					<option value="LK">Sri Lanka</option>
+					<option value="SD">Sudan</option>
+					<option value="SR">Suriname</option>
+					<option value="SJ">Svalbard and Jan Mayen</option>
+					<option value="SZ">Swaziland</option>
+					<option value="SE">Sweden</option>
+					<option value="CH">Switzerland</option>
+					<option value="SY">Syrian Arab Republic</option>
+					<option value="TW">Taiwan, Province of China</option>
+					<option value="TJ">Tajikistan</option>
+					<option value="TZ">Tanzania, United Republic of</option>
+					<option value="TH">Thailand</option>
+					<option value="TL">Timor-Leste</option>
+					<option value="TG">Togo</option>
+					<option value="TK">Tokelau</option>
+					<option value="TO">Tonga</option>
+					<option value="TT">Trinidad and Tobago</option>
+					<option value="TN">Tunisia</option>
+					<option value="TR">Turkey</option>
+					<option value="TM">Turkmenistan</option>
+					<option value="TC">Turks and Caicos Islands</option>
+					<option value="TV">Tuvalu</option>
+					<option value="UG">Uganda</option>
+					<option value="UA">Ukraine</option>
+					<option value="AE">United Arab Emirates</option>
+					<option value="GB">United Kingdom</option>
+					<option value="US">United States</option>
+					<option value="UM">United States Minor Outlying Islands</option>
+					<option value="UY">Uruguay</option>
+					<option value="UZ">Uzbekistan</option>
+					<option value="VU">Vanuatu</option>
+					<option value="VE">Venezuela, Bolivarian Republic of</option>
+					<option value="VN">Viet Nam</option>
+					<option value="VG">Virgin Islands, British</option>
+					<option value="VI">Virgin Islands, U.S.</option>
+					<option value="WF">Wallis and Futuna</option>
+					<option value="EH">Western Sahara</option>
+					<option value="YE">Yemen</option>
+					<option value="ZM">Zambia</option>
+					<option value="ZW">Zimbabwe</option>
+  				</select>
+  			</div>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<select class="form-input select" name="" ng-model="referral">
+  				<option value="" selected data-default id="select-default">How did you hear about us?</option>
+  				<option>School sponsored program</option>
+  				<option>Online search</option>
+  				<option>In-class presentation</option>
+  				<option>Referral</option>
+  				<option>Press</option>
+  				<option>Conference or event</option>
+  				<option>Facebook</option>
+  				<option>Instagram</option>
+  				<option>Representative</option>
+  				<option>Step up to excellence</option>
+  				<option>I'm an alumni</option>
+  			</select>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix" ng-show="isReferral()">
+  			<input class="form-input" placeholder="name of referrer" name="travelerReferral" ng-model="referrer"/>
+  		</div>
+    	<input type="button" name="next" class="next action-button" value="Next" />
+	</fieldset>
+
+
+
+
+
+	<fieldset>
+		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>GUARDIAN 1 INFO</h3>
+		</div>
+		<div class="form-items-con centered-input-con clearfix">
+  			<input class="form-input" placeholder="Guardian 1 full name" name="guardian1Name" ng-model="guardian1Name"/>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Guardian 1 email" name="guardian1Email" ng-model="guardian1Email"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Guardian 1 Phone #" name="guardian1Phone" ng-model="guardian1Phone"/>
+  			</div>
+  		</div>
+  		<div class="divider"></div>
+  		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>GUARDIAN 2 INFO</h3>
+		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<input class="form-input" placeholder="Guardian 2 full name" name="guardian2Name" ng-model="guardian2Name"/>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Guardian 2 email" name="guardian2Email" ng-model="guardian2Email"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Guardian 2 Phone #" name="guardian2Phone" ng-model="guardian2Phone"/>
+  			</div>
+  		</div>
+  		<div class="divider"></div>
+  		<div class="form-items-con centered-input-con clearfix nopadding">
+  			<select class="form-input select" name="" ng-model="livingSituation">
+  				<option value="" selected data-default id="select-default">Who do you live with?</option>
+  				<option>Both guardians</option>
+  				<option>Guardian 1</option>
+  				<option>Guardian 2</option>
+  			</select>
+  		</div>
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+    	<input type="button" name="next" class="next action-button" value="Next" />
+	</fieldset>
+
+
+
+
+  	<fieldset>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<h3>Are you traveling on a custum group program or individually on an open enrollment program?</h3>
+  			<select class="form-input select">
+  				<option value="" selected data-default id="select-default">Select one</option>
+  				<option>Traveling on a Custom Program</option>
+  				<option>Traveling individually (Open Enrollment)</option>
+  			</select>
+  		</div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+	  			<select class="form-input select" ng-model="destination">
+	  				<option value="" selected data-default id="select-default">Program destination country</option>
+		  			<option value="Belize">Belize</option>
+					<option value="Canada">Canada</option>
+					<option value="China">China</option>
+					<option value="Costa Rica">Costa Rica</option>
+					<option value="France">France</option>
+					<option value="Guatemala">Guatemala</option>
+					<option value="Peru">Peru</option>
+					<option value="Senegal">Senegal</option>
+					<option value="Spain">Spain</option>
+					<option value="Spain to Morocco">Spain to Morocco</option>
+					<option value="Thailand">Thailand</option>
+					<option value="Italy">Italy</option>
+					<option value="Ecuador">Ecuador</option>
+					<option value="Panama">Panama</option>
+					<option value="South Africa">South Africa</option>
+					<option value="Cuba">Cuba</option>
+					<option value="USA">USA</option>
+					<option value="Bhutan">Bhutan</option>
+					<option value="Australia">Australia</option>
+					<option value="Japan">Japan</option>
+	  			</select>
+  			</div>
+  			<div class="form-items-grid">
+  				<select class="form-input select" name="program" ng-model="programs">
+	  				<option value="" selected data-default id="select-default">Select your program</option>
+		  			<option ng-repeat="program in belizePrograms" ng-if="belize()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in canadaPrograms" ng-if="canada()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in chinaPrograms" ng-if="china()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in costaRicaPrograms" ng-if="costaRica()" ng-selected="getCost(program)" value="{{program.name}}">{{program.name}}</option>
+					<option ng-repeat="program in francePrograms" ng-if="france()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in guatemalaPrograms" ng-if="guatemala()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in peruPrograms" ng-if="peru()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in senegalPrograms" ng-if="senegal()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in spainPrograms" ng-if="spain()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in spainToMoroccoPrograms" ng-if="spainToMorocco()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in thailandPrograms" ng-if="thailand()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in italyPrograms" ng-if="italy()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in ecuadorPrograms" ng-if="ecuador()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in panamaPrograms" ng-if="panama()">{{program.name}}</option>
+					<option ng-repeat="program in southAfricaPrograms" ng-if="southAfrica()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in cubaPrograms" ng-if="cuba()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in usaPrograms" ng-if="usa()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in bhutanPrograms" ng-if="bhutan()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in australiaPrograms" ng-if="australia()" ng-selected="getCost(program)">{{program.name}}</option>
+					<option ng-repeat="program in japanPrograms" ng-if="japan()" ng-selected="getCost(program)">{{program.name}}</option>
+	  			</select>
+  			</div>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix" ng-show="isSelected()">
+  			<h2>PROGRAM COST</h2>
+  			<input class="form-input cost" name="programCost" ng-model="cost"/>
+  		</div>
+  		<div class="divider" ng-show="isSelected()"></div>
+  		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Teacher email" ng-model="teacherEmail"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" placeholder="Promo code"  ng-model="promoCode"/>
+  			</div>
+  		</div>
+  		<div class="form-items-con centered-input-con clearfix">
+  			<input type="checkbox" class="checkbox-inline checkbox"/>
+  			<h4 class="checkbox-inline">Are you applying for financial aid?</h4>
+  			<h6>Please check the box if you are applying for financial aid.</h6>
+  		</div>
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+
+
+
+  	<fieldset>
+  		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>PLEASE CONFIRM YOU PROVIDED INFO</h3>
+		</div>
+		<div class="divider"></div>
+		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>TRAVELER INFO</h3>
+		</div>
+		<div class="form-items-con clearfix nopadding traveler-info">
+			<h4>Traveler first name: <strong>{{travelerFirstName}}</strong></h4>
+			<h4>Traveler middle name: <strong>{{travelerMiddleName}}</strong></h4>
+			<h4>Traveler last name: <strong>{{travelerLastName}}</strong></h4>
+
+			<h4>Traveler primary phone number: <strong>{{travelerPrimaryPhone}}</strong></h4>
+			<h4>Traveler secondary phone number: <strong>{{travelerSecondaryPhone}}</strong></h4>
+			<h4>Traveler email: <strong>{{travelerEmail}}</strong></h4>
+			<h4>Traveler gender: <strong>{{travelerGender}}</strong></h4>
+			<h4>Traveler birthdate: <strong>{{travelerBirthdate}}</strong></h4>
+
+			<h4>Traveler mailing address: <strong>{{travelerMailingAddress}}</strong></h4>
+			<h4>Traveler city: <strong>{{travelerCity}}</strong></h4>
+			<h4>Traveler state: <strong>{{travelerState}}</strong></h4>
+			<h4>Traveler zip code: <strong>{{travelerZipCode}}</strong></h4>
+			<h4>Traveler mailing country: <strong>{{travelerMailingCountry}}</strong></h4>
+		</div>
+		<div class="divider"></div>
+		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>GUARDIAN INFO</h3>
+		</div>
+		<div class="form-items-con clearfix nopadding traveler-info">
+			<h4>Guardian 1 full name: <strong>{{guardian1Name}}</strong></h4>
+			<h4>Guardian 1 email: <strong>{{guardian1Email}}</strong></h4>
+			<h4>Guardian 1 phone number: <strong>{{guardian1Phone}}</strong></h4>
+			
+			<h4>Guardian 2 full name: <strong>{{guardian2Name}}</strong></h4>
+			<h4>Guardian 2 email: <strong>{{guardian2Email}}</strong></h4>
+			<h4>Guardian 2 phone number: <strong>{{guardian2Phone}}</strong></h4>
+		</div>
+		<div class="divider"></div>
+		<div class="form-items-con centered-input-con clearfix nopadding">
+			<h3>PROGRAM INFO</h3>
+		</div>
+		<div class="form-items-con clearfix nopadding traveler-info">
+			<h4>Program name: <strong>{{programs}}</strong></h4>
+			<h4>Program cost: <strong>{{cost}}</strong></h4>
+		</div>
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Confirm" />
+  	</fieldset>
+
+
+
+	<fieldset>
+		<h1>Soon to be developed</h1>
+		<div class="form-items-con clearfix">
+  			<div class="form-items-grid">
+  				<input class="form-input" name="username" placeholder="Username"/>
+  			</div>
+  			<div class="form-items-grid">
+  				<input class="form-input" name="password" placeholder="Password"/>
+  			</div>
+  		</div>
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="submit" class="next action-button" value="Submit"/>
+	</fieldset>
+
+	<fieldset>
+		<h1>Soon to be developed</h1>
+		<input type="button" name="previous" class="previous action-button" value="Previous"/>
+	</fieldset>
+</form>
+</div>
+
+	</body>
+</html>

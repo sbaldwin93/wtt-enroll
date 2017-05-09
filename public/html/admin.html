@@ -1,0 +1,22 @@
+<html ng-app="wttEnrollmentForm">
+	<head>
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<!-- JQUERY -->
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<!-- admin.CSS -->
+		<link rel="stylesheet" href="../css/admin.css">
+	</head>
+	<body ng-controller="mainController">
+	<div class="container">
+	<form action="/auth/signup" method="post">
+		<input name="username"/>
+		<input name="password"/>
+		<button type="submit">submit</button>
+	</form>
+	
+	<div ng-view></div>
+
+	</body>
+</html>

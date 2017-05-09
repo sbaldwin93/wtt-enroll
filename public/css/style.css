@@ -1,0 +1,21 @@
+.nav-container {
+	width: 100%;
+	text-align: center;
+}
+.nav {
+	margin: auto;
+}
+.btn {
+	margin: 15px;
+}
+.divider {
+	margin: auto;
+	height: 1px;
+	width: 80%;
+	background-color: #f2f2f2;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.header-con {
+	text-align: center;
+}
