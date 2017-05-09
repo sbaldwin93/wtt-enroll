@@ -15,7 +15,11 @@
 		<script type="text/javascript" src="../js/form.js"></script>
 	</head>
 	<body ng-controller="mainController">
-
+	<form action="/auth/login" method="post">
+		<input name="username" placeholder="username" />
+		<input name="password" placeholder="password" />
+		<button class="btn btn-default" type="submit">login</button>
+	</form>
 <!-- multistep form -->
 <!--<form id="msform" method="POST" action="https://creator.zoho.com/api/zoho_lacey21/json/wtt-test-form/form/wtt_test_form/record/add/">-->
 <form id="msform" action="/auth/signup" method="post">
